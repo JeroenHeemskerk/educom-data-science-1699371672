@@ -6,114 +6,82 @@ classDiagram
     note "+ = public, - = private, # = protected"
     %% A <|-- B means that class B inherits from class A %%
 
-    HtmlDoc <|-- BasicDoc
+    Hoofdrubriek <|-- Subrubriek
+    Hoofdrubriek <|-- Leverancier
+    Subrubriek <|-- Leverancier
+    Optionele_eigenschappen <|-- Leverancier
+    Leverancier <|-- Contactpersoon
 
-    BasicDoc <|-- HomeDoc
-    BasicDoc <|-- AboutDoc
-    BasicDoc <|-- FormDoc
+    Land <|-- Provincie
+    Provincie <|-- Gemeente
+    Gemeente <|-- Woonplaats
+    Woonplaats <|-- Straatnaam
+    Straatnaam <|-- Postcode
 
-    FormDoc <|-- ContactDoc
-    FormDoc <|-- LoginDoc
-    FormDoc <|-- ProductDoc
-    FormDoc <|-- RegisterDoc
+    Taak <|-- Persoon
+    Afdeling <|-- Taak
+        
 
-    ProductDoc <|-- TablesDoc
+    class Hoofdrubriek {
+        Subrubriek
+    }
 
-    TablesDoc <|-- CartDoc
-    TablesDoc <|-- DetailsDoc
-    TablesDoc <|-- OrdersDoc
-    TablesDoc <|-- WebshopDoc
-    
-    class HtmlDoc{
-       +show()
-       -showHtmlStart()
-       -showHeaderStart()
-       #showHeaderContent()
-       -showHeaderEnd()
-       -showBodyStart()
-       #showBodyContent()
-       -showBodyEnd()
-       -showHtmlEnd()
+    class Subrubriek {
     }
-    class BasicDoc{
-        #data 
-        +__construct(mydata)
-        #showHeaderContent()
-        -showTitle()
-        -showCssLinks()
-        #showBodyContent()
-        #showHeader()
-        -showMenu()
-        #showContent()
-        -showFooter()
+
+    class Optionele_eigenschappen{
+        eigenschap
+        eigenschap
+        eigenschap
+        etc
     }
-    class HomeDoc{
-        #showHeader()
-        #showContent()
+
+    class Leverancier{
+        Naam
+        Adres
+        Postbus
+        Email
+        Mobiele_nummer
+        Contactpersoon
+        Optionele eigenschap(pen)
     }
-    class AboutDoc{
-        #showHeader()
-        #showContent()
+
+    class Contactpersoon{
+        Naam
+        Email
+        Telefoonnummer
+        Afdeling
     }
-    class FormDoc{
-        <<abstract>>
-        #showFormStart()
-        #showFormEnd()
-        #showFormField()
-        #showErrorSpan()
+
+    class Postcode{
+        Geo-locatie
     }
-    class ProductDoc{
-        <<abstract>>
-        #showAddToCartAction()
+
+    class Straatnaam{
     }
-    class TablesDoc{
-        <<abstract>>
-        #tableStart()
-        #tableEnd()
-        #rowStart()
-        #rowEnd()
-        #dataCell()
-        #headerCell()
+
+    class Woonplaats{
     }
-    class ContactDoc{
-        #data
-        #showHeader()
-        #showContent()
+
+    class Gemeente{
     }
-    class LoginDoc{
-        #data
-        #showHeader()
-        #showContent()
+
+    class Provincie{
     }
-    class RegisterDoc{
-        #data
-        #showHeader()
-        #showContent()
+
+    class Land{
     }
-    class CartDoc{
-        #data
-        #showHeader()
-        #showContent()
-        -showTable()
-        -showBuyAction()
+
+    class Persoon{
+        Taak
     }
-    class OrdersDoc{
-        #data
-        #showHeader()
-        #showContent()
-        -showOrderAndRows()
-        -showOrdersAndTotals()
+
+    class Taak{
+        Naam
     }
-    class DetailsDoc{
-        #data
-        #showHeader()
-        #showContent()
-    }
-    class WebshopDoc{
-        #data
-        #showHeader()
-        #showContent()
-        -showWebshopProducts()
+
+    class Afdeling{
+        Naam
     }
 
 ```
