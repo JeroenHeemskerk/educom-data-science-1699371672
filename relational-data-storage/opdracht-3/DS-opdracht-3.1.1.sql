@@ -1,1 +1,1 @@
-SELECT * FROM Steden;
+SELECT * FROM mhl_cities;
