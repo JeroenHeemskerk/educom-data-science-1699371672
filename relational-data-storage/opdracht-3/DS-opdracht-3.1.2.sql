@@ -1,1 +1,1 @@
-SELECT DISTINCT name FROM Steden;
+SELECT DISTINCT name FROM mhl_cities;
