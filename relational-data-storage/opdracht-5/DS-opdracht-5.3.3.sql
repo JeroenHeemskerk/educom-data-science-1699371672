@@ -1,6 +1,6 @@
 SELECT
 S.name AS name,
-D.department AS contact,
+IFNULL(D.department, 'tav directie') AS contact,
 V.adres AS adres,
 V.postcode AS postcode,
 V.stad AS stad
