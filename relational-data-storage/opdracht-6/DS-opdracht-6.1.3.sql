@@ -1,4 +1,4 @@
-SELECT RUBRIEKEN.name, IFNULL(SUPPLIER_COUNT.amount_of_suppliers, 0)
+SELECT RUBRIEKEN.name, IFNULL(SUPPLIER_COUNT.amount_of_suppliers, 0) AS numsup
 FROM
 	(SELECT IF(child.parent = 0 OR parent.name IS NULL, child.name, CONCAT(parent.name, ' - ', child.name)) AS name,
     child.id as id
